@@ -1,14 +1,15 @@
 import { test, expect } from '../../fixtures/baseFixtures';
+import addresses from '../../data/addresses.json'
 
+// const billingAddress = {
+//   firstName: 'Anuradha',
+//   lastName: 'Agarwal',
+//   street: '123 Test Street',
+//   city: 'Dubai',
+//   country: 'AE',
+// };
 
-const billingAddress = {
-  firstName: 'Anuradha',
-  lastName: 'Agarwal',
-  street: '123 Test Street',
-  city: 'Dubai',
-  country: 'AE',
-};
-
+const billingAddress = addresses[0];
 
 // ============================================================
 // Billing Address Update Test

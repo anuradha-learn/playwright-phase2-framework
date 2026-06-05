@@ -1,17 +1,9 @@
 import { test, expect } from '../../fixtures/baseFixtures';
-
-
-
-const testData = {
-    search: {
-        keyword: 'organic',
-        maxPrice: '$25',
-    },
-};
+import searchData from '../../data/search.json'
 
 // Variable to store dynamically generated order ID
 let orderId: string | undefined;
-
+const search =searchData[0]
 // ======================================================
 // Checkout Journey — Registered User Purchase Flow
 // ======================================================
@@ -47,13 +39,13 @@ test.describe('Checkout — registered user purchase journey @checkout @journey'
             await test.step('Search for products', async () => {
 
                 await page.getByRole('searchbox', { name: 'Search' })
-                    .fill(testData.search.keyword);
+                    .fill(search.keyword);
 
                 await page.getByRole('button', { name: 'Search' }).click();
 
                 await expect(
                     page.getByRole('heading', {
-                        name: `Search results: “${testData.search.keyword}”`
+                        name: `Search results: “${search.keyword}”`
                     })
                 ).toBeVisible();
 
@@ -67,7 +59,7 @@ test.describe('Checkout — registered user purchase journey @checkout @journey'
                         .getByRole('heading')
                         .textContent();
                     expect(title?.toLowerCase())
-                        .toContain(testData.search.keyword.toLowerCase());
+                        .toContain(search.keyword.toLowerCase());
                 }
 
             });
@@ -79,11 +71,11 @@ test.describe('Checkout — registered user purchase journey @checkout @journey'
 
                 await page.getByRole('textbox', {
                     name: 'Filter products by maximum'
-                }).fill(testData.search.maxPrice);
+                }).fill(search.maxPrice);
 
                 // Convert "$25" to numeric 25 for comparison
                 const maxPriceNum = Number(
-                    testData.search.maxPrice.replace('$', '')
+                    search.maxPrice.replace('$', '')
                 );
 
                 await page.getByText(`Up to $${maxPriceNum}`)
@@ -200,22 +192,43 @@ test.describe('Checkout — registered user purchase journey @checkout @journey'
                 const myAccountLink = page.getByRole('link', {
                     name: /my account/i
                 });
-                await Promise.all([
-                    page.waitForURL(/qa-cart.com/),
-                    myAccountLink.click()
-                ]);
+
+                // Before — flaky
+                // await Promise.all([
+                //     page.waitForURL(/qa-cart.com/),
+                //     myAccountLink.click()
+                // ]);
+
+                // After — reliable
+                myAccountLink.click()
+                await page.waitForLoadState('domcontentloaded');
+
+
 
                 // Navigate to Orders
                 const ordersLink = page.getByRole('link', {
                     name: 'Orders',
                     exact: true
                 });
-                await Promise.all([
-                    page.waitForURL(/orders/),
-                    ordersLink.click()
-                ]);
 
-                await page.waitForLoadState('domcontentloaded');
+                // Before — flaky  
+                // await Promise.all([
+                //     page.waitForURL(/orders/),
+                //     ordersLink.click()
+                // ]);
+
+                /**
+                 * Use Promise.all with waitForURL when navigating away from the current
+                 *  domain or to a clearly different URL pattern.
+                 *  When staying on the same domain —
+                 *  simple click then waitForLoadState is more reliable.
+                 */
+
+                // After — reliable
+                await ordersLink.click();
+                await page.waitForURL(/orders/);
+                await page.waitForLoadState('domcontentloaded')
+
 
                 // Verify orders table is visible
                 const ordersTable = page.getByRole('table');

@@ -8,10 +8,13 @@ import path from 'path';
 const authFile = path.join(__dirname, '..', 'auth', 'storageState.json');
 
 //Login Credentials
+
 const loginData = {
-    user: 'anuradha.learn@gmail.com',
-    password: 'Play@1234#$',
+    user: process.env.DEMO_USER!,
+    password: process.env.DEMO_PASS!,
+    baseUrl:process.env.BASE_URL!
 };
+
 
 // ─────────────────────────────────────────────
 // Setup: authenticate once and save session
