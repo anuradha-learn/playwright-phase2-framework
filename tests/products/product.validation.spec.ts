@@ -1,14 +1,6 @@
 // import { test, expect } from '@playwright/test';
 import { test, expect } from '../../fixtures/baseFixtures';
 
-// ─────────────────────────────────────────────
-// Login Test Data
-// ─────────────────────────────────────────────
-const loginData = {
-    user: 'anuradha.learn@gmail.com',
-    password: 'Play@1234#$',
-    baseUrl: 'https://qa-cart.com/',
-};
 
 // ─────────────────────────────────────────────
 // Product Test Data

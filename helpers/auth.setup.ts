@@ -11,7 +11,6 @@ const authFile = path.join(__dirname, '..', 'auth', 'storageState.json');
 const loginData = {
     user: 'anuradha.learn@gmail.com',
     password: 'Play@1234#$',
-    baseUrl: 'https://qa-cart.com/',
 };
 
 // ─────────────────────────────────────────────

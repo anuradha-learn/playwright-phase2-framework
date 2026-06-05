@@ -1,14 +1,5 @@
 import { test, expect } from '../../fixtures/baseFixtures';
 
-// ============================================================
-// Test Data
-// ============================================================
-
-const loginData = {
-  user: 'anuradha.learn@gmail.com',
-  password: 'Play@1234#$',
-  baseUrl: 'https://qa-cart.com/',
-};
 
 const billingAddress = {
   firstName: 'Anuradha',
