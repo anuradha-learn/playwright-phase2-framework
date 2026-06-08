@@ -5,12 +5,6 @@ import products from '../../data/product.json';
 // ─────────────────────────────────────────────
 // Product Test Data
 // ─────────────────────────────────────────────
-// const testData = {
-//     product: {
-//         name: 'Assorted Coffee',
-//         expectedUrl: /assorted-coffee/
-//     }
-// };
 const product = products[0];
 
 // ─────────────────────────────────────────────

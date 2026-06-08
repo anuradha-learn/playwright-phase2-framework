@@ -2,17 +2,21 @@ import { test, expect } from '../../fixtures/baseFixtures';
 import searchData from '../../data/search.json'
 
 // Variable to store dynamically generated order ID
-let orderId: string | undefined;
-const search =searchData[0]
+
+
+
 // ======================================================
 // Checkout Journey — Registered User Purchase Flow
 // ======================================================
 
 test.describe('Checkout — registered user purchase journey @checkout @journey', () => {
 
+    searchData.forEach((search)=>{
     test(
-        'registered user searches filters purchases product and verifies order @smoke @regression @critical',
+        `registered user searches for ${search.keyword} and ${search.maxPrice} filters purchases product and verifies order @smoke @regression @critical`,
         async ({ loggedInPage:page }) => {
+
+            let orderId: string | undefined;
 
             // ──────────────────────────────────────────
             // Step 1 — Open DemoShop
@@ -211,18 +215,15 @@ test.describe('Checkout — registered user purchase journey @checkout @journey'
                     exact: true
                 });
 
+                
+
                 // Before — flaky  
                 // await Promise.all([
                 //     page.waitForURL(/orders/),
                 //     ordersLink.click()
                 // ]);
 
-                /**
-                 * Use Promise.all with waitForURL when navigating away from the current
-                 *  domain or to a clearly different URL pattern.
-                 *  When staying on the same domain —
-                 *  simple click then waitForLoadState is more reliable.
-                 */
+                
 
                 // After — reliable
                 await ordersLink.click();
@@ -267,5 +268,7 @@ test.describe('Checkout — registered user purchase journey @checkout @journey'
 
         }
     );
+
+})
 
 });

@@ -1,6 +1,10 @@
 [
-  {
+    {
         "keyword": "organic",
         "maxPrice": "$25"
+    },
+    {
+        "keyword": "fresh",
+        "maxPrice": "$34"
     }
 ]
