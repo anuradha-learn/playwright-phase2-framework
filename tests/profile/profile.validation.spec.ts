@@ -1,14 +1,19 @@
 import { test, expect } from '../../fixtures/baseFixtures';
 import addresses from '../../data/addresses.json'
 
-const billingAddress = addresses[0];
+// const billingAddress = addresses[0];
 
+// import { readExcel } from '../../utils/excel-reader';
+// import { AddessData } from '../../utils/types';
+
+// const addresses=readExcel<AddessData>('addresses.xlsx')
 // ============================================================
 // Billing Address Update Test
 // ============================================================
 test.describe('Profile Management  @profile', () => {
+  addresses.forEach((billingAddress)=>{
   test(
-    'registered user successfully updates billing address @regression',
+    `registered user for ${billingAddress.firstName} in ${billingAddress.city} successfully updates billing address @regression`,
     async ({ loggedInPage:page }) => {
 
       // --------------------------------------------------------
@@ -77,11 +82,11 @@ test.describe('Profile Management  @profile', () => {
           .getByLabel('Town / City')
           .fill(billingAddress.city);
 
-        await page
-          .locator('#billing_country')
-          .selectOption({
-            value: billingAddress.country
-          });
+        // await page
+        //   .locator('#billing_country')
+        //   .selectOption({
+        //     value: billingAddress.country
+        //   });
 
         // Verify entered values before saving
 
@@ -166,5 +171,8 @@ test.describe('Profile Management  @profile', () => {
       
     }
   )
+}
+  )
+
 }
 )
