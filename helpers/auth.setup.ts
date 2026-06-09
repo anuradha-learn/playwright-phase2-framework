@@ -1,5 +1,7 @@
 import { test as setup, expect } from '@playwright/test'
 import path from 'path';
+import { LoginPage } from '../pages/LoginPage';
+
 
 
 // ─────────────────────────────────────────────
@@ -22,29 +24,16 @@ const loginData = {
 
 setup('authenticate and save session', async ({ page, context }) => {
 
+    const loginPage=new LoginPage(page)
+
     // Navigate to application
-    await page.goto(loginData.baseUrl);
+    await loginPage.navigate(loginData.baseUrl)
 
-    // Enter username
-    await page.getByRole('textbox', {
-        name: 'Username or email address'
-    }).fill(loginData.user);
-
-    // Enter password
-    await page.getByRole('textbox', {
-        name: 'Password'
-    }).fill(loginData.password);
-
-    // Click Login button
-    await page.getByRole('button', {
-        name: 'Log in'
-    }).click();
+    //Login
+    await loginPage.login(loginData.user,loginData.password)
 
     // Verify successful login
-    await expect(
-        page.getByLabel('Account pages')
-            .getByRole('link', { name: 'Log out' })
-    ).toBeVisible();
+    await loginPage.verifyLoggedIn()
 
     await context.storageState({path:authFile})
     console.log(`Auth state saved to ${authFile}`);
