@@ -2,7 +2,7 @@
 // Data types — match Excel and CSV column headers exactly
 // ─────────────────────────────────────────────
 
-export type AddessData={
+export type AddressData={
     firstName:string;
     lastName:string;
     street: string;

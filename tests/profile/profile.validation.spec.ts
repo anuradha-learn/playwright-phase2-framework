@@ -1,178 +1,78 @@
 import { test, expect } from '../../fixtures/baseFixtures';
+
+//read from JSON
 import addresses from '../../data/addresses.json'
+import { AddressPage } from '../../pages/AddressPage';
 
-// const billingAddress = addresses[0];
-
+//read from Excel
 // import { readExcel } from '../../utils/excel-reader';
-// import { AddessData } from '../../utils/types';
-
+// import { AddressData } from '../../utils/types';
 // const addresses=readExcel<AddessData>('addresses.xlsx')
+
 // ============================================================
 // Billing Address Update Test
 // ============================================================
 test.describe('Profile Management  @profile', () => {
-  addresses.forEach((billingAddress)=>{
-  test(
-    `registered user for ${billingAddress.firstName} in ${billingAddress.city} successfully updates billing address @regression`,
-    async ({ loggedInPage:page }) => {
+  addresses.forEach((billingAddress) => {
+    test(
+      `registered user for ${billingAddress.firstName} in ${billingAddress.city} successfully updates billing address @regression`,
+      async ({ loggedInPage: page }) => {
 
-      // --------------------------------------------------------
-      // Step 1 - Navigate to Billing Address Page
-      // --------------------------------------------------------
+        // --------------------------------------------------------
+        // Step 1 - Navigate to Billing Address Page
+        // --------------------------------------------------------
+        const addressPage = new AddressPage(page)
 
-      await test.step('Navigate to Billing Address page', async () => {
+        await test.step('Navigate to Billing Address page', async () => {
 
-        await page.goto('/edit-address');
+          await addressPage.navigate()
 
-        await expect(
-          page.getByRole('heading', {
-            name: 'Billing address'
-          })
-        ).toBeVisible();
+        });
 
-      });
+        // --------------------------------------------------------
+        // Step 2 - Open Edit Billing Address Form
+        // --------------------------------------------------------
 
-      // --------------------------------------------------------
-      // Step 2 - Open Edit Billing Address Form
-      // --------------------------------------------------------
+        await test.step('Open Edit Billing Address form', async () => {
 
-      await test.step('Open Edit Billing Address form', async () => {
+          await addressPage.openEditForm()
 
-        const editBillingLink = page.getByRole(
-          'link',
-          { name: 'Edit Billing address' }
-        );
+        });
 
-        await expect(editBillingLink).toBeEnabled();
+        // --------------------------------------------------------
+        // Step 3 - Update Billing Address
+        // --------------------------------------------------------
 
-        await Promise.all([
-          page.waitForURL(/edit-billing-address|edit-address/),
-          editBillingLink.click()
-        ]);
+        await test.step('Update billing address details', async () => {
 
-        await page.waitForLoadState('domcontentloaded');
+          await addressPage.fillBillingAddress(billingAddress)
 
-        await expect(
-          page.getByRole('heading', {
-            name: 'Billing address'
-          })
-        ).toBeVisible();
+        });
 
-      });
+        // --------------------------------------------------------
+        // Step 4 - Save Billing Address
+        // --------------------------------------------------------
 
-      // --------------------------------------------------------
-      // Step 3 - Update Billing Address
-      // --------------------------------------------------------
+        await test.step('Save updated billing address', async () => {
 
-      await test.step('Update billing address details', async () => {
+          await addressPage.save()
 
-        await page
-          .getByLabel('First name')
-          .fill(billingAddress.firstName);
+        });
 
-        await page
-          .getByLabel('Last name')
-          .fill(billingAddress.lastName);
+        // --------------------------------------------------------
+        // Step 5 - Verify Saved Address
+        // --------------------------------------------------------
 
-        await page
-          .getByLabel('Street address')
-          .fill(billingAddress.street);
+        await test.step('Verify updated billing address is displayed', async () => {
 
-        await page
-          .getByLabel('Town / City')
-          .fill(billingAddress.city);
+          await addressPage.verifyAddress(billingAddress)
 
-        // await page
-        //   .locator('#billing_country')
-        //   .selectOption({
-        //     value: billingAddress.country
-        //   });
+        }
+        )
+      }
+    )
 
-        // Verify entered values before saving
-
-        await expect(
-          page.getByLabel('First name')
-        ).toHaveValue(
-          billingAddress.firstName
-        );
-
-        await expect(
-          page.getByLabel('Last name')
-        ).toHaveValue(
-          billingAddress.lastName
-        );
-
-        await expect(
-          page.getByLabel('Town / City')
-        ).toHaveValue(
-          billingAddress.city
-        );
-
-      });
-
-      // --------------------------------------------------------
-      // Step 4 - Save Billing Address
-      // --------------------------------------------------------
-
-      await test.step('Save updated billing address', async () => {
-
-        const saveButton = page.getByRole(
-          'button',
-          { name: 'SAVE ADDRESS' }
-        );
-
-        await expect(saveButton).toBeEnabled();
-
-        await saveButton.click();
-
-        await expect(
-          page.getByText(
-            'Address changed successfully.'
-          )
-        ).toBeVisible();
-
-      });
-
-      // --------------------------------------------------------
-      // Step 5 - Verify Saved Address
-      // --------------------------------------------------------
-
-      await test.step('Verify updated billing address is displayed', async () => {
-
-        const billingSection = page.locator(
-          '[class*="woocommerce-Address"]'
-        );
-
-        const addressBlock =
-          billingSection.locator('address');
-
-        await expect(addressBlock)
-          .toContainText(
-            billingAddress.firstName
-          );
-
-        await expect(addressBlock)
-          .toContainText(
-            billingAddress.lastName
-          );
-
-        await expect(addressBlock)
-          .toContainText(
-            billingAddress.street
-          );
-
-        await expect(addressBlock)
-          .toContainText(
-            billingAddress.city
-          );
-
-      });
-
-      
-    }
-  )
-}
+  }
   )
 
-}
-)
+})
