@@ -1,6 +1,7 @@
 // import { test, expect } from '@playwright/test';
 import { test, expect } from '../../fixtures/baseFixtures';
 import products from '../../data/product.json';
+import { ProductPage } from '../../pages/ProductPage';
 
 // ─────────────────────────────────────────────
 // Product Test Data
@@ -17,10 +18,6 @@ test('registered user views product details in new tab @regression', async ({ lo
     await test.step('Navigate to DemoShop', async () => {
 
         page.goto('/demoshop')
-
-        // await page.getByRole('link', {
-        //     name: 'DemoShop'
-        // }).click();
 
         // Verify user reaches Shop page
         await expect(page).toHaveURL(/shop/);
@@ -42,26 +39,24 @@ test('registered user views product details in new tab @regression', async ({ lo
         // Listen for the new page event BEFORE clicking the link
         // Promise.all prevents a race condition where the tab opens
         // before Playwright starts listening for it.
+
         const [productTab] = await Promise.all([
             page.context().waitForEvent('page'),
             productLink.click()
         ]);
 
-        // console.log(productTab)
-
         // Wait until the new page finishes loading
         await productTab.waitForLoadState();
+        
+        //Product page 
+        const productPage=new ProductPage(productTab)
 
         // Verify product heading is displayed
-        await expect(
-            productTab.getByRole('heading', {
-                name: product.name
-            })
-        ).toBeVisible();
-
+       
+         await   productPage.verifyProductName(product.name)
+     
         // Verify correct product page URL
-        await expect(productTab)
-            .toHaveURL(new RegExp(product.expectedUrl));
+        await productPage.verifyURL(product.expectedUrl)
 
         // Close the product tab
         await productTab.close();

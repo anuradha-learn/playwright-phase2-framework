@@ -90,19 +90,19 @@ export class AddressPage {
     }
 
 
-    async fillBillingAddress(address:AddressData) {
+    async fillBillingAddress(address: AddressData) {
 
         await this.firstNameField
-          .fill(address.firstName);
+            .fill(address.firstName);
 
         await this.lastNameField
-          .fill(address.lastName);
+            .fill(address.lastName);
 
         await this.streetField
-          .fill(address.street);
+            .fill(address.street);
 
         await this.cityField
-          .fill(address.city);
+            .fill(address.city);
 
         // await page
         //   .locator('#billing_country')
@@ -113,62 +113,62 @@ export class AddressPage {
         // Verify entered values before saving
 
         await expect(
-          this.firstNameField
+            this.firstNameField
         ).toHaveValue(
-          address.firstName
+            address.firstName
         );
 
         await expect(
-          this.lastNameField
+            this.lastNameField
         ).toHaveValue(
-          address.lastName
+            address.lastName
         );
 
         await expect(
-          this.cityField
+            this.cityField
         ).toHaveValue(
-          address.city
+            address.city
         );
 
-        
+
     }
 
-    async save(){
-        
+    async save() {
+
         await expect(this.saveButton).toBeEnabled();
 
         await this.saveButton.click();
 
         await expect(
-          this.successMessage
+            this.successMessage
         ).toBeVisible();
 
     }
 
-    async verifyAddress(address:AddressData){
+    async verifyAddress(address: AddressData) {
 
         const addressBlock =
-          this.billingSection.locator('address');
+            this.billingSection.locator('address');
 
         await expect(addressBlock)
-          .toContainText(
-            address.firstName
-          );
+            .toContainText(
+                address.firstName
+            );
 
         await expect(addressBlock)
-          .toContainText(
-            address.lastName
-          );
+            .toContainText(
+                address.lastName
+            );
 
         await expect(addressBlock)
-          .toContainText(
-            address.street
-          );
+            .toContainText(
+                address.street
+            );
 
         await expect(addressBlock)
-          .toContainText(
-            address.city
-          );
+            .toContainText(
+                address.city
+            );
 
     }
 }
