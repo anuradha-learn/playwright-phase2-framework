@@ -6,5 +6,9 @@
     {
         "keyword": "fresh",
         "maxPrice": "$34"
+    },
+    {
+        "keyword": "farm",
+        "maxPrice": "$34"
     }
 ]
