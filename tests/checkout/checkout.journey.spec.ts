@@ -13,7 +13,15 @@ test.describe('Checkout — registered user purchase journey @checkout @journey'
     searchData.forEach((search) => {
         test(
             `registered user searches for ${search.keyword} and ${search.maxPrice} filters purchases product and verifies order @smoke @regression @critical`,
+            
             async ({ loggedInPage: page }) => {
+
+            test.info().annotations.push({type:'Search keyword', description:search.keyword})
+            test.info().annotations.push({ type: 'Max price', description: search.maxPrice });
+            test.info().annotations.push({ type: 'Environment', description: 'staging' });
+
+
+
 
                 let orderId: string | undefined;
 
@@ -88,6 +96,7 @@ test.describe('Checkout — registered user purchase journey @checkout @journey'
 
                     // console.log(`Order placed: ${orderId}`);
                     orderId=await checkoutPage.captureOrderId()
+                    await test.info().attach ('OrderID',{body:orderId})
 
                 });
 

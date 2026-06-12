@@ -14,12 +14,15 @@ type AuthFixtures = {
 
 export const test = base.extend<AuthFixtures>({
 
-    loggedInPage: async ({ browser }, use) => {
+    loggedInPage: async ({ browser }, use,testInfo) => {
         // ── Setup ─────────────────────────────
         // Create a new context with saved auth state
 
         const context: BrowserContext = await browser.newContext({
-            storageState: authFile
+            storageState: authFile,
+            recordVideo:{
+                dir:testInfo.outputDir
+            }
         })
 
         //Hand authenticated page to test
@@ -29,6 +32,20 @@ export const test = base.extend<AuthFixtures>({
         // ── Teardown ─────────────────────────────
         // Close the manually created context
         await context.close()
+        if (testInfo.status!='passed'){
+
+            const videoPath=await page.video()?.path()
+            if (videoPath)
+            {
+                await testInfo.attach('video',{path:videoPath,
+                    contentType:'video/webm'})
+            }
+
+        }
+        else{
+
+            await page.video()?.delete()
+        }
 
     }
 

@@ -46,6 +46,9 @@ test.describe('Profile Management  @profile', () => {
         await test.step('Update billing address details', async () => {
 
           await addressPage.fillBillingAddress(billingAddress)
+          await test.info().attach('Address used', {
+body: `${billingAddress.firstName}, ${billingAddress.city}`
+})
 
         });
 

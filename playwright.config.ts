@@ -11,11 +11,17 @@ if (!process.env.DEMO_USER) throw new Error('DEMO_USER is not set in .env');
 if (!process.env.DEMO_PASS) throw new Error('DEMO_PASS is not set in .env');
 
 
-export default defineConfig({
+
+export default defineConfig({ 
     timeout: 40 * 1000,
     expect: { timeout: 40 * 1000 },
     reporter: 'html',
-
+    retries:process.env.CI ? 2 : 1,
+   use:{
+    screenshot:'only-on-failure',
+    video:'retain-on-failure',
+    trace:'on-first-retry'
+   },
     projects: [
         {
             name: 'setup',
