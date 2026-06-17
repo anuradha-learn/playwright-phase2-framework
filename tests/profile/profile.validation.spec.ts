@@ -18,6 +18,7 @@ test.describe('Profile Management  @profile', () => {
       `registered user for ${billingAddress.firstName} in ${billingAddress.city} successfully updates billing address @regression`,
       async ({ loggedInPage: page }) => {
 
+
         // --------------------------------------------------------
         // Step 1 - Navigate to Billing Address Page
         // --------------------------------------------------------

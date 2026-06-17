@@ -3,6 +3,10 @@ node_modules/
 playwright-report/
 test-results/
 
+# Allure
+allure-results/
+allure-report/
+
 # Environment and auth
 .env
 auth/storageState.json
