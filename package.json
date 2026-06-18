@@ -10,7 +10,7 @@
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:report": "allure generate allure-results --clean -o allure-report && allure open allure-report"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anuradha-learn/phase2-starter-framework.git"
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "dotenv": "^17.4.2",
+    "rimraf": "^6.1.3",
     "xlsx": "^0.18.5"
   }
 }
