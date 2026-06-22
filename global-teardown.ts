@@ -1,20 +1,20 @@
 
 
-async function deleteTestOrders(apiContext:any){
-  const response = await apiContext.get( '/wp-json/wc/v3/orders',{params: { per_page: 20 },} );
+async function deleteTestOrders(apiContext: any) {
+  const response = await apiContext.get('/wp-json/wc/v3/orders', { params: { per_page: 5 }, });
   const orders = await response.json();
-//   const testOrders = orders.filter(
-//   (order: any) => order.billing.email === process.env.TEST_USER_EMAIL
-// );
+  //   const testOrders = orders.filter(
+  //   (order: any) => order.billing.email === process.env.TEST_USER_EMAIL
+  // );
   console.log(orders.length)
   console.log(`Found ${orders.length} orders to delete`);
 
 
-  for (const order of orders){
+  for (const order of orders) {
     console.log(`Deleting Order ${order.id}`);
-    await apiContext.delete(`/wp-json/wc/v3/orders/${order.id}`,{
-      params:{
-        force:true
+    await apiContext.delete(`/wp-json/wc/v3/orders/${order.id}`, {
+      params: {
+        force: true
       }
     })
   }
@@ -31,41 +31,24 @@ async function deleteTestOrders(apiContext:any){
 
 //   await page.goto(`${process.env.BASE_URL}/cart`);
 //   // clear cart actions
-  
+
 //   await browser.close();
 // }
 
- import { createWooCommerceContext } from "./helpers/api_helper";
+import { createWooCommerceContext } from "./helpers/api_helper";
 
- export default async function globalTeardown() {
-  
-  const apiContext=await createWooCommerceContext()
-  try{
-//   const response = await apiContext.get( '/wp-json/wc/v3/orders',{params: { per_page: 20 },} );
-//   const orders = await response.json();
-// //   const testOrders = orders.filter(
-// //   (order: any) => order.billing.email === process.env.TEST_USER_EMAIL
-// // );
-//   console.log(orders.length)
-//   console.log(`Found ${orders.length} orders to delete`);
+export default async function globalTeardown() {
+
+  const apiContext = await createWooCommerceContext()
+  try {
+    await deleteTestOrders(apiContext);
+    // await deleteTestCustomers(apiContext);
 
 
-//   for (const order of orders){
-//     console.log(`Deleting Order ${order.id}`);
-//     await apiContext.delete(`/wp-json/wc/v3/orders/${order.id}`,{
-//       params:{
-//         force:true
-//       }
-//     })
-//   }
-  await deleteTestOrders(apiContext);
-  // await deleteTestCustomers(apiContext);
-
-
-}
-finally{
-  await apiContext.dispose()
-}
+  }
+  finally {
+    await apiContext.dispose()
+  }
 
 }
 
