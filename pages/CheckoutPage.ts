@@ -55,6 +55,11 @@ export class CheckoutPage {
          this.placeOrderButton.click()
     ]);
 
+
+        //  this.page.waitForURL(/order-received/),
+        //  this.placeOrderButton.click()
+
+
     await expect(this.confirmationMessage).toBeVisible();
     }
 

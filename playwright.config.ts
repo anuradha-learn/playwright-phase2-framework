@@ -17,7 +17,7 @@ if (!process.env.API_BASE_URL) throw new Error('API_BASE_URL is not set in .env'
 export default defineConfig({ 
     timeout: 40 * 1000,
     expect: { timeout: 40 * 1000 },
-    // globalSetup:'./helpers/global-setup.ts',
+    globalTeardown: './global-teardown.ts',
     reporter: [['html'],['allure-playwright']],
     retries:process.env.CI ? 2 : 1,
    use:{
@@ -26,15 +26,15 @@ export default defineConfig({
     trace:'on-first-retry'
    },
     projects: [
-        // {
-        //     name: 'setup',
-        //     testDir: './helpers',
-        //     testMatch: 'auth.setup.ts',
-        //     use: {
-        //         browserName: 'chromium',
-        //         headless: false,
-        //     },
-        // },
+        {
+            name: 'setup',
+            testDir: './helpers',
+            testMatch: 'auth.setup.ts',
+            use: {
+                browserName: 'chromium',
+                headless: false,
+            },
+        },
         {
             name: 'chromium',
             testDir: './tests',
@@ -43,7 +43,7 @@ export default defineConfig({
                 headless: false,
                 baseURL:process.env.BASE_URL
             },
-            // dependencies: ['setup'],
+            dependencies: ['setup'],
         },
     ],
 });
