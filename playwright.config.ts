@@ -32,7 +32,7 @@ export default defineConfig({
             testMatch: 'auth.setup.ts',
             use: {
                 browserName: 'chromium',
-                headless: true,
+                headless: false,
             },
         },
         {
@@ -40,7 +40,7 @@ export default defineConfig({
             testDir: './tests',
             use: {
                 browserName: 'chromium',
-                headless: true,
+                headless: false,
                 baseURL:process.env.BASE_URL
             },
             dependencies: ['setup'],
