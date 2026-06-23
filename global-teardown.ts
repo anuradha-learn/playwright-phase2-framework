@@ -39,6 +39,13 @@ import { createWooCommerceContext } from "./helpers/api_helper";
 
 export default async function globalTeardown() {
 
+  // Small delay before cleanup.
+// WooCommerce occasionally continues processing order-related operations
+// immediately after test execution. Waiting briefly helps avoid intermittent
+// connection reset / socket hang up errors during teardown cleanup.
+    await new Promise(resolve => setTimeout(resolve, 10000));
+
+
   const apiContext = await createWooCommerceContext()
   try {
     await deleteTestOrders(apiContext);
