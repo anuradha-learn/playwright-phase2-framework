@@ -15,6 +15,7 @@ if (!process.env.API_BASE_URL) throw new Error('API_BASE_URL is not set in .env'
 
 
 export default defineConfig({ 
+    workers: 1,
     timeout: 40 * 1000,
     expect: { timeout: 40 * 1000 },
     globalTeardown: './global-teardown.ts',
