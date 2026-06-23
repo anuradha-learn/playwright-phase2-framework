@@ -12,6 +12,7 @@ jobs:
       BASE_URL: ${{ secrets.BASE_URL }}
       DEMO_USER: ${{ secrets.DEMO_USER }}
       DEMO_PASS: ${{ secrets.DEMO_PASS }}
+      API_BASE_URL: ${{ secrets.API_BASE_URL }}
       WC_BASE_URL: ${{ secrets.WC_BASE_URL }}
       WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
       WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
