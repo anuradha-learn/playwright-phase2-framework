@@ -4,6 +4,12 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Test tags to run(eg. @smoke @regression)'
+        required: false
+        default: '@smoke'
 jobs:
   test:
     timeout-minutes: 60
@@ -31,7 +37,7 @@ jobs:
         distribution: temurin
         java-version: '17' 
     - name: Run Playwright tests
-      run: npx playwright test --grep @smoke
+      run: npx playwright test --grep "${{github.event.inputs.tags || '@smoke'}}"
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
