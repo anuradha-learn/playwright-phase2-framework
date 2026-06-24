@@ -18,7 +18,7 @@ export default defineConfig({
     workers: process.env.CI ? 1 : undefined,
     timeout: 40 * 1000,
     expect: { timeout: 40 * 1000 },
-    globalTeardown: './global-teardown.ts',
+    // globalTeardown: './global-teardown.ts',
     reporter: [['html'],['allure-playwright']],
     retries:process.env.CI ? 2 : 1,
    use:{
