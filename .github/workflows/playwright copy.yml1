@@ -8,6 +8,14 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
+      DEMO_USER: ${{ secrets.DEMO_USER }}
+      DEMO_PASS: ${{ secrets.DEMO_PASS }}
+      API_BASE_URL: ${{ secrets.API_BASE_URL }}
+      WC_BASE_URL: ${{ secrets.WC_BASE_URL }}
+      WC_CONSUMER_KEY: ${{ secrets.WC_CONSUMER_KEY }}
+      WC_CONSUMER_SECRET: ${{ secrets.WC_CONSUMER_SECRET }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -17,6 +25,19 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '17' 
+    - name: Download Previous Allure History
+      uses: actions/download-artifact@v4
+      if: always()
+      continue-on-error: true
+      with:
+        name: allure-history
+        path: allure-results/history/
+        github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
@@ -25,3 +46,40 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: test-results
+        path: test-results/
+        retention-days: 30
+    - name: Generate Allure Report
+      if: always()
+      run: npx allure generate allure-results --clean -o allure-report
+    - name: Upload Allure Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-results
+        path: allure-results/
+        retention-days: 30
+    - name: Upload Allure History
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-history
+        path: allure-report/history/
+        retention-days: 90
+    - name: Upload Allure Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+       name: allure-report
+       path: allure-report/
+       retention-days: 30
+
+  
+
+      
+
+

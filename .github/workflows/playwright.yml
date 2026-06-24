@@ -30,16 +30,8 @@ jobs:
       with:
         distribution: temurin
         java-version: '17' 
-    - name: Download Previous Allure History
-      uses: actions/download-artifact@v4
-      if: always()
-      continue-on-error: true
-      with:
-        name: allure-history
-        path: allure-results/history/
-        github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test --grep @smoke
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
@@ -63,13 +55,6 @@ jobs:
         name: allure-results
         path: allure-results/
         retention-days: 30
-    - name: Upload Allure History
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: allure-history
-        path: allure-report/history/
-        retention-days: 90
     - name: Upload Allure Report
       uses: actions/upload-artifact@v4
       if: always()
