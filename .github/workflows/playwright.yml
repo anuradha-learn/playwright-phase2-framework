@@ -30,6 +30,13 @@ jobs:
       with:
         distribution: temurin
         java-version: '17' 
+    - name: Download Previous Allure History
+      uses: actions/download-artifact@v4
+      if: always()
+      continue-on-error: true
+      with:
+        name: allure-history
+        path: allure-results/history/
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
