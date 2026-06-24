@@ -55,6 +55,13 @@ jobs:
         name: allure-results
         path: allure-results/
         retention-days: 30
+    - name: Upload Allure History
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-history
+        path: allure-report/history/
+        retention-days: 90
     - name: Upload Allure Report
       uses: actions/upload-artifact@v4
       if: always()
