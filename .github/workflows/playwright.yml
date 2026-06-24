@@ -52,9 +52,17 @@ jobs:
       uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: allure-report
-        path: allure-report/
+        name: allure-results
+        path: allure-results/
         retention-days: 30
+    - name: Upload Allure Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+       name: allure-report
+       path: allure-report/
+       retention-days: 30
+    
   
 
       
