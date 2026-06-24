@@ -37,6 +37,7 @@ jobs:
       with:
         name: allure-history
         path: allure-results/history/
+        github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
@@ -54,7 +55,7 @@ jobs:
         retention-days: 30
     - name: Generate Allure Report
       if: always()
-      run: npx allure generate allure-results --clean o --allure-report
+      run: npx allure generate allure-results --clean -o allure-report
     - name: Upload Allure Results
       uses: actions/upload-artifact@v4
       if: always()
