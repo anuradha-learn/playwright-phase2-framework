@@ -303,6 +303,44 @@ export class ShopPage {
         return productTab
 
     }
+    async clearCart() {
+        await this.page.goto('/mycart/');
+        await this.page.waitForLoadState('domcontentloaded');
+
+        while (true) {
+            const removeLinks = this.page.locator('a.remove');
+            const count = await removeLinks.count();
+
+            if (count === 0) {
+                break;
+            }
+
+            await expect(removeLinks.first()).toBeVisible();
+
+            await Promise.all([
+                this.page.waitForURL(/mycart/i),
+                removeLinks.first().click({ force: true })
+            ]);
+
+            await this.page.waitForLoadState('domcontentloaded');
+            await this.page.locator('.blockUI').first().waitFor({ state: 'detached' }).catch(() => undefined);
+            await this.page.waitForLoadState('networkidle');
+            await this.page.goto('/mycart/');
+            await this.page.waitForLoadState('domcontentloaded');
+        }
+
+        // Remove coupon if still applied
+        const removeCouponButton = this.page.getByRole('button', {
+            name: /remove.*coupon/i
+        });
+        if (await removeCouponButton.count() > 0) {
+            await removeCouponButton.first().click();
+            await this.page.waitForLoadState('networkidle');
+        }
+
+        await expect(this.page.getByText(/your cart is currently empty/i)).toBeVisible();
+
+    }
 
 }
 

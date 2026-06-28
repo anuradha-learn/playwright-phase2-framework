@@ -30,10 +30,32 @@ export class CheckoutPage {
             .filter({ hasText: 'Order number:' })
             .locator('strong');
     }
-    // ─────────────────────────────────────────────
-    // Actions
-    // ─────────────────────────────────────────────
 
+    private get couponInput() {
+        return this.page.getByPlaceholder('Coupon code');
+    }
+
+    private get applyCouponButton() {
+        return this.page.getByRole('button', {
+            name: /apply coupon/i
+        });
+    }
+
+    private escapeRegExp(value: string) {
+        return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    private getRemoveCouponButton(couponCode: string) {
+        const escapedCouponCode = this.escapeRegExp(couponCode);
+
+        return this.page.getByRole('button', {
+            name: new RegExp(`remove.*${escapedCouponCode}`, 'i')
+        });
+    }
+
+
+    
+//Actions
 
     async proceedToCheckout(){
         await expect(this.checkoutButton).toBeEnabled();
@@ -74,6 +96,35 @@ export class CheckoutPage {
 
                     console.log(`Order placed: ${orderId}`);
         return orderId
+    }
+
+    async applyCoupon(couponCode: string) {
+        await expect(this.couponInput).toBeVisible();
+        await this.couponInput.fill(couponCode);
+        await expect(this.applyCouponButton).toBeEnabled();
+        await this.applyCouponButton.click();
+    }
+
+    async verifyCouponApplied(couponCode: string,discountPercent: number,originalTotal: number) {
+        const discount = (originalTotal * discountPercent / 100).toFixed(2);
+        const total = (originalTotal - parseFloat(discount)).toFixed(2);
+        const removeCouponButton = this.getRemoveCouponButton(couponCode);
+
+        await expect(removeCouponButton).toBeVisible();
+        await expect(this.page.getByText(couponCode)).toBeVisible();
+        // await expect(this.page.getByText(`-${discount}`)).toBeVisible();
+        await expect(this.page.getByText(`-$${discount}`)).toBeVisible();
+
+        await expect(this.page.getByText(`$${total}`)).toBeVisible();
+
+    }  
+
+    async removeCoupon(couponCode: string) {
+        const removeCouponButton = this.getRemoveCouponButton(couponCode);
+
+        await expect(removeCouponButton).toBeVisible();
+        await removeCouponButton.click();
+        await expect(removeCouponButton).not.toBeVisible();
     }
 
     

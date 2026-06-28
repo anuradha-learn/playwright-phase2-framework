@@ -38,6 +38,7 @@ jobs:
         java-version: '17' 
     - name: Run Playwright tests
       run: npx playwright test --grep "${{github.event.inputs.tags || '@smoke'}}"
+        
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
