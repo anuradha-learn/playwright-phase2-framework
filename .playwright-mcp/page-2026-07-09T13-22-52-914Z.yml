@@ -1,0 +1,5 @@
+- generic [ref=e2]:
+  - heading "Checking your browser before accessing qa-cart.com" [level=1] [ref=e5]:
+    - text: Checking your browser before accessing
+    - text: qa-cart.com
+  - paragraph [ref=e6]: Please wait for up to 5 seconds...

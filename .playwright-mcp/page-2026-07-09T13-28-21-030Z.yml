@@ -1,0 +1,212 @@
+- generic [active] [ref=f3e1]:
+  - complementary "Store notice" [ref=f3e2]:
+    - text: This is a test demo store created for QA automation, API testing, and performance testing practice. Visit
+    - link "anuradhaagarwal.com" [ref=f3e3] [cursor=pointer]:
+      - /url: https://anuradhaagarwal.com
+    - text: to learn more about qa courses. No orders will be fulfilled.
+  - link "Skip to content" [ref=f3e4] [cursor=pointer]:
+    - /url: "#content"
+  - generic [ref=f3e5]:
+    - banner [ref=f3e6]:
+      - generic [ref=f3e11]:
+        - generic [ref=f3e14]:
+          - link "TEST AUTOMATION DEMOSTORE" [ref=f3e16] [cursor=pointer]:
+            - /url: https://qa-cart.com/
+            - img "TEST AUTOMATION DEMOSTORE" [ref=f3e17]
+          - generic [ref=f3e18]:
+            - link "QA Automation Test Demo Store" [ref=f3e20] [cursor=pointer]:
+              - /url: https://qa-cart.com/
+            - paragraph
+        - navigation "Primary Site Navigation" [ref=f3e26]:
+          - list [ref=f3e28]:
+            - listitem [ref=f3e29]:
+              - link "DemoShop" [ref=f3e30] [cursor=pointer]:
+                - /url: https://qa-cart.com/demoshop/
+            - listitem [ref=f3e31]:
+              - link "My account" [ref=f3e32] [cursor=pointer]:
+                - /url: https://qa-cart.com/
+            - listitem [ref=f3e33]:
+              - link "QA Automation Courses | Training" [ref=f3e34] [cursor=pointer]:
+                - /url: https://anuradhaagarwal.com
+        - generic [ref=f3e35]:
+          - link "View Shopping Cart, empty" [ref=f3e40] [cursor=pointer]:
+            - /url: https://qa-cart.com/mycart/
+            - generic [ref=f3e41]:
+              - generic [ref=f3e44]: $0.00
+              - generic [ref=f3e45]:
+                - img [ref=f3e47]
+                - text: "0"
+          - link "Account icon link" [ref=f3e51] [cursor=pointer]:
+            - /url: https://qa-cart.com/customer/
+            - img [ref=f3e53]
+      - text: "0"
+    - main [ref=f3e60]:
+      - generic [ref=f3e62]:
+        - generic [ref=f3e63]:
+          - button "View full-screen image gallery" [ref=f3e64] [cursor=pointer]:
+            - img [ref=f3e66]
+          - link "Fresh Organic Honey" [ref=f3e69] [cursor=pointer]:
+            - /url: https://qa-cart.com/wp-content/uploads/2021/03/organic-honey.jpg
+            - img "Fresh Organic Honey" [ref=f3e70]
+        - generic [ref=f3e71]:
+          - navigation "Breadcrumb" [ref=f3e72]:
+            - link "Home" [ref=f3e73] [cursor=pointer]:
+              - /url: https://qa-cart.com
+            - text: /
+            - link "Groceries" [ref=f3e74] [cursor=pointer]:
+              - /url: https://qa-cart.com/product-category/groceries/
+            - text: / Fresh Organic Honey
+          - heading "Fresh Organic Honey" [level=1] [ref=f3e75]
+          - paragraph [ref=f3e76]:
+            - generic [ref=f3e78]: $34.00
+          - text: + Free Shipping
+          - paragraph [ref=f3e80]: Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a ante ultrices felis pulvinar lacinia. Donec id mauris ligula. Nulla in porta nisi.
+          - generic [ref=f3e81]:
+            - generic [ref=f3e82]:
+              - generic [ref=f3e83]: Fresh Organic Honey quantity
+              - spinbutton "Product quantity" [ref=f3e84]: "1"
+            - button "Add to cart" [ref=f3e85] [cursor=pointer]
+          - generic [ref=f3e87]:
+            - text: "Categories:"
+            - link "Groceries" [ref=f3e88] [cursor=pointer]:
+              - /url: https://qa-cart.com/product-category/groceries/
+            - text: ","
+            - link "Juice" [ref=f3e89] [cursor=pointer]:
+              - /url: https://qa-cart.com/product-category/juice/
+          - group "Guaranteed Safe Checkout" [ref=f3e90]:
+            - generic [ref=f3e91]: Guaranteed Safe Checkout
+            - list [ref=f3e92]:
+              - listitem [ref=f3e93]:
+                - img [ref=f3e95]
+              - listitem [ref=f3e100]:
+                - img [ref=f3e102]
+              - listitem [ref=f3e109]:
+                - img [ref=f3e111]
+              - listitem [ref=f3e115]:
+                - img [ref=f3e117]
+        - generic [ref=f3e122]:
+          - tablist [ref=f3e123]:
+            - tab "Description" [selected] [ref=f3e124] [cursor=pointer]
+            - tab "Reviews (0)" [ref=f3e125] [cursor=pointer]
+          - tabpanel "Description" [ref=f3e126]:
+            - paragraph [ref=f3e127]: Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.
+          - text:     
+        - generic [ref=f3e128]:
+          - heading "Related products" [level=2] [ref=f3e129]
+          - list [ref=f3e130]:
+            - listitem [ref=f3e131]:
+              - link "Assorted Coffee" [ref=f3e133] [cursor=pointer]:
+                - /url: https://qa-cart.com/product/assorted-coffee/
+                - img "Assorted Coffee" [ref=f3e134]
+              - generic [ref=f3e135]:
+                - generic [ref=f3e136]: Groceries
+                - link "Assorted Coffee" [ref=f3e137] [cursor=pointer]:
+                  - /url: https://qa-cart.com/product/assorted-coffee/
+                  - heading "Assorted Coffee" [level=2] [ref=f3e138]
+                - generic [ref=f3e141]: $35.00
+                - 'button "Add to cart: “Assorted Coffee”" [ref=f3e142] [cursor=pointer]': Add to cart
+            - listitem [ref=f3e144]:
+              - link "Organic Face Scrub" [ref=f3e146] [cursor=pointer]:
+                - /url: https://qa-cart.com/product/organic-face-scrub/
+                - img "Organic Face Scrub" [ref=f3e147]
+              - generic [ref=f3e148]:
+                - generic [ref=f3e149]: Groceries
+                - link "Organic Face Scrub" [ref=f3e150] [cursor=pointer]:
+                  - /url: https://qa-cart.com/product/organic-face-scrub/
+                  - heading "Organic Face Scrub" [level=2] [ref=f3e151]
+                - generic [ref=f3e154]: $35.00
+                - 'button "Add to cart: “Organic Face Scrub”" [ref=f3e155] [cursor=pointer]': Add to cart
+            - listitem [ref=f3e157]:
+              - link "Fresh Orange Juice" [ref=f3e159] [cursor=pointer]:
+                - /url: https://qa-cart.com/product/fresh-orange-juice/
+                - img "Fresh Orange Juice" [ref=f3e160]
+              - generic [ref=f3e161]:
+                - generic [ref=f3e162]: Juice
+                - link "Fresh Orange Juice" [ref=f3e163] [cursor=pointer]:
+                  - /url: https://qa-cart.com/product/fresh-orange-juice/
+                  - heading "Fresh Orange Juice" [level=2] [ref=f3e164]
+                - generic [ref=f3e167]: $18.00
+                - 'button "Add to cart: “Fresh Orange Juice”" [ref=f3e168] [cursor=pointer]': Add to cart
+    - contentinfo [ref=f3e170]:
+      - generic [ref=f3e173]:
+        - region "Footer Widget 4" [ref=f3e175]:
+          - link [ref=f3e177] [cursor=pointer]:
+            - /url: "#"
+          - paragraph [ref=f3e181]:
+            - strong [ref=f3e182]:
+              - emphasis [ref=f3e183]: Maecenas mi justo, interdum at consectetur vel, tristique et arcu.
+        - region "Footer Widget 2" [ref=f3e185]:
+          - generic [ref=f3e186]:
+            - heading "Website" [level=2] [ref=f3e187]
+            - navigation "Website" [ref=f3e188]:
+              - list [ref=f3e189]:
+                - listitem [ref=f3e190]:
+                  - link "DemoShop" [ref=f3e191] [cursor=pointer]:
+                    - /url: https://qa-cart.com/demoshop/
+                - listitem [ref=f3e192]:
+                  - link "My account" [ref=f3e193] [cursor=pointer]:
+                    - /url: https://qa-cart.com/
+                - listitem [ref=f3e194]:
+                  - link "QA Automation Courses | Training" [ref=f3e195] [cursor=pointer]:
+                    - /url: https://anuradhaagarwal.com
+        - region "Footer Widget 1" [ref=f3e197]:
+          - generic [ref=f3e198]:
+            - heading "Quick Links" [level=2] [ref=f3e199]
+            - navigation "Quick Links" [ref=f3e200]:
+              - list [ref=f3e201]:
+                - listitem [ref=f3e202]:
+                  - link "Know More About Us" [ref=f3e203] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=f3e204]:
+                  - link "Visit Store" [ref=f3e205] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=f3e206]:
+                  - link "Let’s Connect" [ref=f3e207] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=f3e208]:
+                  - link "Locate Stores" [ref=f3e209] [cursor=pointer]:
+                    - /url: "#"
+        - region "Footer Widget 3" [ref=f3e211]:
+          - generic [ref=f3e212]:
+            - heading "Site Links" [level=2] [ref=f3e213]
+            - navigation "Site Links" [ref=f3e214]:
+              - list [ref=f3e215]:
+                - listitem [ref=f3e216]:
+                  - link "Privacy Policy" [ref=f3e217] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=f3e218]:
+                  - link "Shipping Details" [ref=f3e219] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=f3e220]:
+                  - link "Offers Coupons" [ref=f3e221] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=f3e222]:
+                  - link "Terms & Conditions" [ref=f3e223] [cursor=pointer]:
+                    - /url: "#"
+      - generic [ref=f3e226]:
+        - paragraph [ref=f3e230]: Copyright © anuradhaagarwal.com
+        - generic [ref=f3e234]:
+          - link "Yelp" [ref=f3e235] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=f3e237]
+          - link "Facebook" [ref=f3e239] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=f3e241]
+          - link "Twitter" [ref=f3e243] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=f3e245]
+          - link "Instagram" [ref=f3e247] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=f3e249]
+  - generic [ref=f3e253]:
+    - generic [ref=f3e254]:
+      - img "Fresh Organic Honey" [ref=f3e255]
+      - generic [ref=f3e256]: Fresh Organic Honey
+    - generic [ref=f3e257]:
+      - generic [ref=f3e259]: $34.00
+      - generic [ref=f3e260]:
+        - generic [ref=f3e261]:
+          - generic [ref=f3e262]: Fresh Organic Honey quantity
+          - spinbutton "Product quantity" [ref=f3e263]: "1"
+        - button "Add to cart" [ref=f3e264] [cursor=pointer]
+  - status [ref=f3e265]
