@@ -1,0 +1,294 @@
+- generic [ref=e1]:
+  - complementary "Store notice" [ref=e2]:
+    - text: This is a test demo store created for QA automation, API testing, and performance testing practice. Visit
+    - link "anuradhaagarwal.com" [ref=e3] [cursor=pointer]:
+      - /url: https://anuradhaagarwal.com
+    - text: to learn more about qa courses. No orders will be fulfilled.
+  - link "Skip to content" [ref=e4] [cursor=pointer]:
+    - /url: "#content"
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - generic [ref=e11]:
+        - generic [ref=e14]:
+          - link "TEST AUTOMATION DEMOSTORE" [ref=e16] [cursor=pointer]:
+            - /url: https://qa-cart.com/
+            - img "TEST AUTOMATION DEMOSTORE" [ref=e17]
+          - generic [ref=e18]:
+            - link "QA Automation Test Demo Store" [ref=e20] [cursor=pointer]:
+              - /url: https://qa-cart.com/
+            - paragraph
+        - navigation "Primary Site Navigation" [ref=e26]:
+          - list [ref=e28]:
+            - listitem [ref=e29]:
+              - link "DemoShop" [ref=e30] [cursor=pointer]:
+                - /url: https://qa-cart.com/demoshop/
+            - listitem [ref=e31]:
+              - link "My account" [ref=e32] [cursor=pointer]:
+                - /url: https://qa-cart.com/
+            - listitem [ref=e33]:
+              - link "QA Automation Courses | Training" [ref=e34] [cursor=pointer]:
+                - /url: https://anuradhaagarwal.com
+        - generic [ref=e35]:
+          - link "View Shopping Cart, empty" [ref=e266] [cursor=pointer]:
+            - /url: https://qa-cart.com/mycart/
+            - generic [ref=e267]:
+              - generic [ref=e270]: $0.00
+              - generic [ref=e271]:
+                - img [ref=e273]
+                - text: "0"
+          - link "Account icon link" [ref=e52] [cursor=pointer]:
+            - /url: https://qa-cart.com/customer/
+            - img [ref=e54]
+      - text: "0"
+    - main [ref=e61]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - button "View full-screen image gallery" [ref=e65] [cursor=pointer]:
+            - img [ref=e67]
+          - generic [ref=e69]:
+            - link "Assorted Coffee" [ref=e70] [cursor=pointer]:
+              - /url: https://qa-cart.com/wp-content/uploads/2021/03/coffee-asorted.jpg
+              - img "Assorted Coffee" [ref=e71]
+            - img [ref=e275]
+        - generic [ref=e72]:
+          - navigation "Breadcrumb" [ref=e73]:
+            - link "Home" [ref=e74] [cursor=pointer]:
+              - /url: https://qa-cart.com
+            - text: /
+            - link "Groceries" [ref=e75] [cursor=pointer]:
+              - /url: https://qa-cart.com/product-category/groceries/
+            - text: / Assorted Coffee
+          - heading "Assorted Coffee" [level=1] [ref=e76]
+          - paragraph [ref=e77]:
+            - generic [ref=e79]: $35.00
+          - text: + Free Shipping
+          - paragraph [ref=e81]: Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: Assorted Coffee quantity
+              - spinbutton "Product quantity" [ref=e85]: "1"
+            - button "Add to cart" [ref=e86] [cursor=pointer]
+          - generic [ref=e88]:
+            - text: "Category:"
+            - link "Groceries" [ref=e89] [cursor=pointer]:
+              - /url: https://qa-cart.com/product-category/groceries/
+          - group "Guaranteed Safe Checkout" [ref=e90]:
+            - generic [ref=e91]: Guaranteed Safe Checkout
+            - list [ref=e92]:
+              - listitem [ref=e93]:
+                - img [ref=e95]
+              - listitem [ref=e100]:
+                - img [ref=e102]
+              - listitem [ref=e109]:
+                - img [ref=e111]
+              - listitem [ref=e115]:
+                - img [ref=e117]
+        - generic [ref=e122]:
+          - tablist [ref=e123]:
+            - tab "Description" [ref=e124] [cursor=pointer]
+            - tab "Reviews (0)" [active] [selected] [ref=e125] [cursor=pointer]
+          - tabpanel "Reviews (0)" [ref=e276]:
+            - generic [ref=e277]:
+              - list [ref=e279]:
+                - listitem [ref=e280]:
+                  - generic [ref=e282]:
+                    - generic [ref=e284]:
+                      - text: sssss
+                      - generic [ref=e285]:
+                        - text: SSSSS Rated
+                        - strong [ref=e286]: "5"
+                        - text: out of 5
+                    - paragraph [ref=e287]:
+                      - emphasis [ref=e288]: Your review is awaiting approval
+                    - paragraph [ref=e290]: good
+                - listitem [ref=e291]:
+                  - generic [ref=e293]:
+                    - generic [ref=e295]:
+                      - text: sssss
+                      - generic [ref=e296]:
+                        - text: SSSSS Rated
+                        - strong [ref=e297]: "5"
+                        - text: out of 5
+                    - paragraph [ref=e298]:
+                      - emphasis [ref=e299]: Your review is awaiting approval
+                    - paragraph [ref=e301]: Great coffee and excellent packaging. This is a test review submitted via automation.
+                - listitem [ref=e302]:
+                  - generic [ref=e304]:
+                    - generic [ref=e306]:
+                      - text: sssss
+                      - generic [ref=e307]:
+                        - text: SSSSS Rated
+                        - strong [ref=e308]: "5"
+                        - text: out of 5
+                    - paragraph [ref=e309]:
+                      - emphasis [ref=e310]: Your review is awaiting approval
+                    - paragraph [ref=e312]: This is a test review submitted from the browser session.
+                - listitem [ref=e313]:
+                  - generic [ref=e315]:
+                    - generic [ref=e317]:
+                      - text: sssss
+                      - generic [ref=e318]:
+                        - text: SSSSS Rated
+                        - strong [ref=e319]: "5"
+                        - text: out of 5
+                    - paragraph [ref=e320]:
+                      - emphasis [ref=e321]: Your review is awaiting approval
+                    - paragraph [ref=e323]: This is a great product, highly recommended!
+                - listitem [ref=e324]:
+                  - generic [ref=e326]:
+                    - generic [ref=e328]:
+                      - text: sssss
+                      - generic [ref=e329]:
+                        - text: SSSSS Rated
+                        - strong [ref=e330]: "5"
+                        - text: out of 5
+                    - paragraph [ref=e331]:
+                      - emphasis [ref=e332]: Your review is awaiting approval
+                    - paragraph [ref=e334]: This is a great product, highly recommended! [1784638513770]
+                - listitem [ref=e335]:
+                  - generic [ref=e337]:
+                    - generic [ref=e339]:
+                      - text: sssss
+                      - generic [ref=e340]:
+                        - text: SSSSS Rated
+                        - strong [ref=e341]: "5"
+                        - text: out of 5
+                    - paragraph [ref=e342]:
+                      - emphasis [ref=e343]: Your review is awaiting approval
+                    - paragraph [ref=e345]: This is a great product, highly recommended! [1784638555196]
+              - generic [ref=e348]:
+                - heading "Add a review" [level=3] [ref=e349]: Add a review
+                - generic [ref=e350]:
+                  - generic [ref=e351]:
+                    - generic [ref=e352]: Your rating *
+                    - paragraph [ref=e353]:
+                      - group "Your rating *" [ref=e354]:
+                        - radio " 1 of 5 stars" [ref=e355] [cursor=pointer]
+                        - radio " 2 of 5 stars" [ref=e356] [cursor=pointer]
+                        - radio " 3 of 5 stars" [ref=e357] [cursor=pointer]
+                        - radio " 4 of 5 stars" [ref=e358] [cursor=pointer]
+                        - radio " 5 of 5 stars" [ref=e359] [cursor=pointer]
+                  - paragraph [ref=e360]:
+                    - generic [ref=e361]: Your review *
+                    - textbox "Your review *" [ref=e362]
+                  - paragraph [ref=e363]:
+                    - button "Submit" [ref=e364] [cursor=pointer]
+        - generic [ref=e128]:
+          - heading "Related products" [level=2] [ref=e129]
+          - list [ref=e130]:
+            - listitem [ref=e131]:
+              - link "Hand Sanitizer" [ref=e133] [cursor=pointer]:
+                - /url: https://qa-cart.com/product/hand-sanitizer/
+                - img "Hand Sanitizer" [ref=e134]
+              - generic [ref=e135]:
+                - generic [ref=e136]: Groceries
+                - link "Hand Sanitizer" [ref=e137] [cursor=pointer]:
+                  - /url: https://qa-cart.com/product/hand-sanitizer/
+                  - heading "Hand Sanitizer" [level=2] [ref=e138]
+                - generic [ref=e141]: $15.00
+                - 'button "Add to cart: “Hand Sanitizer”" [ref=e142] [cursor=pointer]': Add to cart
+            - listitem [ref=e144]:
+              - link "Organic Face Scrub" [ref=e146] [cursor=pointer]:
+                - /url: https://qa-cart.com/product/organic-face-scrub/
+                - img "Organic Face Scrub" [ref=e147]
+              - generic [ref=e148]:
+                - generic [ref=e149]: Groceries
+                - link "Organic Face Scrub" [ref=e150] [cursor=pointer]:
+                  - /url: https://qa-cart.com/product/organic-face-scrub/
+                  - heading "Organic Face Scrub" [level=2] [ref=e151]
+                - generic [ref=e154]: $35.00
+                - 'button "Add to cart: “Organic Face Scrub”" [ref=e155] [cursor=pointer]': Add to cart
+            - listitem [ref=e157]:
+              - link "Kidney Beans Organic" [ref=e159] [cursor=pointer]:
+                - /url: https://qa-cart.com/product/kidney-beans-organic/
+                - img "Kidney Beans Organic" [ref=e160]
+              - generic [ref=e161]:
+                - generic [ref=e162]: Groceries
+                - link "Kidney Beans Organic" [ref=e163] [cursor=pointer]:
+                  - /url: https://qa-cart.com/product/kidney-beans-organic/
+                  - heading "Kidney Beans Organic" [level=2] [ref=e164]
+                - generic [ref=e167]: $20.00
+                - 'button "Add to cart: “Kidney Beans Organic”" [ref=e168] [cursor=pointer]': Add to cart
+    - contentinfo [ref=e170]:
+      - generic [ref=e173]:
+        - region "Footer Widget 4" [ref=e175]:
+          - link [ref=e177] [cursor=pointer]:
+            - /url: "#"
+          - paragraph [ref=e181]:
+            - strong [ref=e182]:
+              - emphasis [ref=e183]: Maecenas mi justo, interdum at consectetur vel, tristique et arcu.
+        - region "Footer Widget 2" [ref=e185]:
+          - generic [ref=e186]:
+            - heading "Website" [level=2] [ref=e187]
+            - navigation "Website" [ref=e188]:
+              - list [ref=e189]:
+                - listitem [ref=e190]:
+                  - link "DemoShop" [ref=e191] [cursor=pointer]:
+                    - /url: https://qa-cart.com/demoshop/
+                - listitem [ref=e192]:
+                  - link "My account" [ref=e193] [cursor=pointer]:
+                    - /url: https://qa-cart.com/
+                - listitem [ref=e194]:
+                  - link "QA Automation Courses | Training" [ref=e195] [cursor=pointer]:
+                    - /url: https://anuradhaagarwal.com
+        - region "Footer Widget 1" [ref=e197]:
+          - generic [ref=e198]:
+            - heading "Quick Links" [level=2] [ref=e199]
+            - navigation "Quick Links" [ref=e200]:
+              - list [ref=e201]:
+                - listitem [ref=e202]:
+                  - link "Know More About Us" [ref=e203] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e204]:
+                  - link "Visit Store" [ref=e205] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e206]:
+                  - link "Let’s Connect" [ref=e207] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e208]:
+                  - link "Locate Stores" [ref=e209] [cursor=pointer]:
+                    - /url: "#"
+        - region "Footer Widget 3" [ref=e211]:
+          - generic [ref=e212]:
+            - heading "Site Links" [level=2] [ref=e213]
+            - navigation "Site Links" [ref=e214]:
+              - list [ref=e215]:
+                - listitem [ref=e216]:
+                  - link "Privacy Policy" [ref=e217] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e218]:
+                  - link "Shipping Details" [ref=e219] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e220]:
+                  - link "Offers Coupons" [ref=e221] [cursor=pointer]:
+                    - /url: "#"
+                - listitem [ref=e222]:
+                  - link "Terms & Conditions" [ref=e223] [cursor=pointer]:
+                    - /url: "#"
+      - generic [ref=e226]:
+        - paragraph [ref=e230]: Copyright © anuradhaagarwal.com
+        - generic [ref=e234]:
+          - link "Yelp" [ref=e235] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e237]
+          - link "Facebook" [ref=e239] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e241]
+          - link "Twitter" [ref=e243] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e245]
+          - link "Instagram" [ref=e247] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e249]
+  - generic [ref=e253]:
+    - generic [ref=e254]:
+      - img "Assorted Coffee" [ref=e255]
+      - generic [ref=e256]: Assorted Coffee
+    - generic [ref=e257]:
+      - generic [ref=e259]: $35.00
+      - generic [ref=e260]:
+        - generic [ref=e261]:
+          - generic [ref=e262]: Assorted Coffee quantity
+          - spinbutton "Product quantity" [ref=e263]: "1"
+        - button "Add to cart" [ref=e264] [cursor=pointer]
+  - status [ref=e265]
